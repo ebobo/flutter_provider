@@ -11,13 +11,13 @@ class BusPage extends StatefulWidget {
 class _BusPageState extends State<BusPage> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<DataProvider>(
-      builder: (context, provider, child) => Scaffold(
-        body: SizedBox(
-          width: double.infinity,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
-            child: Column(
+    return Scaffold(
+      body: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
+          child: Consumer<DataProvider>(
+            builder: (context, provider, child) => Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -43,24 +43,26 @@ class _BusPageState extends State<BusPage> {
             ),
           ),
         ),
-
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              onPressed: () => provider.minusBus(),
-              tooltip: 'Decrement',
-              child: const Icon(Icons.remove),
-            ),
-            const SizedBox(width: 20),
-            FloatingActionButton(
-              onPressed: () => provider.addBus(),
-              tooltip: 'Increment',
-              child: const Icon(Icons.add),
-            ),
-          ],
-        ), // This trailing comma makes auto-formatting nicer for build methods.
       ),
+
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () =>
+                Provider.of<DataProvider>(context, listen: false).minusBus(),
+            tooltip: 'Decrement',
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 20),
+          FloatingActionButton(
+            onPressed: () =>
+                Provider.of<DataProvider>(context, listen: false).addBus(),
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        ],
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
