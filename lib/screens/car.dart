@@ -48,6 +48,12 @@ class _CarPageState extends State<CarPage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton(
+              onPressed: () => provider.cleanAll(),
+              tooltip: 'Clean',
+              child: const Icon(Icons.exposure_zero),
+            ),
+            const SizedBox(width: 170),
+            FloatingActionButton(
               onPressed: () => provider.minusCar(),
               tooltip: 'Decrement',
               child: const Icon(Icons.remove),
