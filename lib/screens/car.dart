@@ -29,15 +29,15 @@ class _CarPageState extends State<CarPage> {
                 const Text('This month you have used '),
                 Text(
                   'car ${provider.totalCar} times',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
                 Text(
                   'bus ${provider.totalBus} times',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Text(
                   'bicycle ${Provider.of<DataProvider>(context).totalBicycle} times',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
             ),
